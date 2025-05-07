@@ -18,8 +18,8 @@ fi
 if [ -n "${ZONE_ID}" ]; then
     if [ -n "${RECORD_ID}" ]; then
         curl -s -X PATCH "[put your protocol and domain of your PDNS API URL]/api/v1/servers/localhost/zones/$ZONE_ID" \
-            -H "X-Auth-Key: $API_KEY" \
-            -H "Content-Type: application/json"
+            -H "X-API-Key: $API_KEY" \
+            -H "Content-Type: application/json" \
             --data '{ "rrsets": [{ "name": "'"$RECORD_ID"'",  "type": "TXT",  "changetype": "DELETE"}] }'
     fi
 fi
